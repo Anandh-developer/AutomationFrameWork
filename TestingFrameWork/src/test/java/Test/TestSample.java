@@ -11,6 +11,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import Helper.ScreenshotTaker;
 import Helper.WaitHelper;
 import PageObjects.AngularDemo_Obj;
 import TestData.ExcelReader;
@@ -22,6 +23,7 @@ public class TestSample extends BaseClass{
 	AngularDemo_Obj angularDmoobj = new AngularDemo_Obj(driver);
 	ExcelReader excelReader;
 	WaitHelper waitHelper = new WaitHelper(driver);
+	ScreenshotTaker screenshotTaker= new ScreenshotTaker(driver);
 	@BeforeTest
 	public void beforeMethod()
 	{
@@ -34,9 +36,10 @@ public class TestSample extends BaseClass{
 	{
 		excelReader = new ExcelReader();
 		angularDmoobj.inputMenu().click();
-		waitHelper.waitForElementVisible(angularDmoobj.favoriteFoodTextBox(), 5000);
+		waitHelper.waitForElementVisible(angularDmoobj.favoriteFoodTextBox(), 50000);
 		angularDmoobj.favoriteFoodTextBox().clear();
 		angularDmoobj.favoriteFoodTextBox().sendKeys(excelReader.getTestData("Food", 0, 0));
+		screenshotTaker.takeScreenshot();
 		
 	}
 	@AfterTest
