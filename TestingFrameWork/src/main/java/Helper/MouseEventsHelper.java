@@ -52,6 +52,11 @@ public class MouseEventsHelper {
 		actions= new Actions(driver);
 		actions.keyDown(Keys.LEFT_CONTROL).click(element).build().perform();
 	}
+	public void moveToWebElement(WebElement element)
+	{
+		actions= new Actions(driver);
+		actions.moveToElement(element).build().perform();
+	}
 	
 	
 
