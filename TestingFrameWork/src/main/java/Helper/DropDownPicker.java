@@ -5,12 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 public class DropDownPicker {
-	WebDriver driver;
+	
 	Select select;
-	public DropDownPicker(WebDriver driver)
-	{
-	this.driver=driver;	
-	}
+	
 	public void selectByUsingIndexValue(WebElement element,int index)
 	{
 		select = new Select(element);
@@ -21,7 +18,7 @@ public class DropDownPicker {
 		select = new Select(element);
 		select.selectByValue(value);
 	}
-	public void selectByString(WebElement element,String visibleText)
+	public void selectByVisibleText(WebElement element,String visibleText)
 	{
 		select = new Select(element);
 		select.selectByVisibleText(visibleText);
