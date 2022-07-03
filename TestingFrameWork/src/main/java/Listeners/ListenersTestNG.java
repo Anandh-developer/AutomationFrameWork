@@ -1,29 +1,23 @@
 package Listeners;
 
-import org.openqa.selenium.TakesScreenshot;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import Utilities.ExtentReportsConfig;
 
 public class ListenersTestNG implements ITestListener {
 
-	ExtentSparkReporter spartReports= new ExtentSparkReporter("./ExtentReports/spark.html");;
-	ExtentReports extentReports = new ExtentReports();;
-	ExtentTest 	testLogger;
+	ExtentReportsConfig extentReportConfig= new ExtentReportsConfig();
 	
 
 	public void onFinish(ITestContext Result) {
-		extentReports.flush();
+		extentReportConfig.flushTheReports();
 	}
 
 	@Override
 	public void onStart(ITestContext Result) {
-		extentReports.attachReporter(spartReports);
-		testLogger=extentReports.createTest(Result.getName());
+		extentReportConfig.reportDeclaration(Result.getName());
 	}
 
 	@Override
@@ -34,29 +28,28 @@ public class ListenersTestNG implements ITestListener {
 	// When Test case get failed, this method is called.
 	@Override
 	public void onTestFailure(ITestResult Result) {
-		testLogger.fail("Test case failed"+Result.getName());
-		
+	
+		extentReportConfig.extentTestLoggers("fail", "Failed");
 	}
 
 	// When Test case get Skipped, this method is called.
 	@Override
 	public void onTestSkipped(ITestResult Result) {
-		testLogger.addScreenCaptureFromPath("");
-		testLogger.skip("Test methods got skipped");
-
+	
+		 extentReportConfig.extentTestLoggers("skip", Result.getTestName());
 	}
 
 	// When Test case get Started, this method is called.
 	@Override
 	public void onTestStart(ITestResult Result) {
-		testLogger.info("Test case started "+Result.getName());
+
 		
 	}
 
 	// When Test case get passed, this method is called.
 	@Override
 	public void onTestSuccess(ITestResult Result) {
-		testLogger.pass("Test case Passed successfully "+Result.getName());
+		extentReportConfig.extentTestLoggers("pass",Result.getTestName() );
 	}
 
 	

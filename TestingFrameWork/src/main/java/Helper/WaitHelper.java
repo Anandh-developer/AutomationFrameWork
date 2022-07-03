@@ -17,7 +17,7 @@ public class WaitHelper {
 	}
 	public void waitForElementVisible(WebElement element,int duration)
 	{
-		wait = new WebDriverWait(driver,Duration.ofMillis(duration));
+		wait = new WebDriverWait(driver,Duration.ofSeconds(duration));
 		wait.until(ExpectedConditions.visibilityOf(element));		
 	}
 	public void setImpleciWait(int timeout)
