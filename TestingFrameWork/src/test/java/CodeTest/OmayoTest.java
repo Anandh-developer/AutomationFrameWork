@@ -11,7 +11,7 @@ import PageObjects.OmayoBlogSpotObj;
 import Utilities.BaseClass;
 
 public class OmayoTest {
-	WebDriver driver=BaseClass.initializeDriver("Chrome");
+	WebDriver driver=BaseClass.initializeDriver("Firefox");
 	OmayoBlogSpotObj omayoObj= new OmayoBlogSpotObj(driver);
 	JavascriptHelper javascriptHelper= new JavascriptHelper(driver);
 	//FluentWaitHelper fluentWaitHelper= new FluentWaitHelper(driver);

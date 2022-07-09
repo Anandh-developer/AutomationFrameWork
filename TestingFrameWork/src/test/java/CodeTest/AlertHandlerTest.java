@@ -22,13 +22,9 @@ public class AlertHandlerTest {
 	@Test(testName="alertDemo")
 	public void alertHandlerTest() throws InterruptedException
 	{
-		driver.get("https://demoqa.com/alerts");
-		fluentWaitHelper.elementToBeClickableWihFluentWait(driver.findElement(By.xpath("//button[@id='promtButton']")), 30, 3);
-		javascriptHelper.scrollIntoViewAndClick(driver.findElement(By.xpath("//button[@id='promtButton']")));
-		
-		//driver.findElement(By.xpath("//button[@id='promtButton']")).click();
-		driver.switchTo().alert().sendKeys("Ok");
-		//alertHandler.promtAlert("Ok");
+		driver.get("https://the-internet.herokuapp.com/javascript_alerts");
+		driver.findElement(By.xpath("//button[text()='Click for JS Prompt']")).click();
+	    alertHandler.promtAlert("Ok");
 		Thread.sleep(5000); 
 		
 	}

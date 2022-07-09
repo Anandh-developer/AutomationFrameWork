@@ -1,5 +1,6 @@
 package Helper;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 
@@ -23,7 +24,9 @@ public class AlertsHandler {
 	}
 
 	public void promtAlert(String text) {
-		driver.switchTo().alert().sendKeys(text);
+		Alert alert = driver.switchTo().alert();
+	alert.sendKeys(text);
+	alert.accept();
 	}
 
 	public boolean isAlertDisplayed() {
