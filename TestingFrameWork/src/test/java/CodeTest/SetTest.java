@@ -4,29 +4,16 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class SetTest {
 
 	public static void main(String[] args) {
-	Set<String> test= new HashSet<>();
-	test.add("Anandh");
-	test.add("Kumar");
-	Iterator<String> iter=test.iterator();
-	while(iter.hasNext())
-	{
-	
-		System.out.println(iter.hasNext());
-		System.out.println(test.size());
-		System.out.println(iter.next());
-		
+WebDriverManager.firefoxdriver().setup();
+WebDriver driver=new FirefoxDriver();
+driver.get("https://www.w3schools.com/java/java_iterator.asp");
 	}
-	while(iter.hasNext())
-	{
-		
-		
-		
-		System.out.println(iter.next());
-	}
-
-	}
-
 }

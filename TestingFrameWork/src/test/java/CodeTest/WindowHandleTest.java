@@ -10,7 +10,7 @@ import Helper.WindowHandlers;
 import Utilities.BaseClass;
 
 public class WindowHandleTest {
-	WebDriver driver=BaseClass.initializeDriver("Chrome");
+	WebDriver driver=BaseClass.initializeDriver("firefox");
 	WindowHandlers windowHandles= new WindowHandlers(driver);
 	JavascriptHelper javascriptHelper= new JavascriptHelper(driver);
 	@Test()
@@ -20,7 +20,7 @@ public class WindowHandleTest {
 		driver.findElement(By.xpath("//button[@id='newWindowBtn']")).click();
 		windowHandles.switchToNewWindow(1);
 		javascriptHelper.jsScroll();
-	//	windowHandles.swithcToParentWindowWithChildClose();
+		windowHandles.swithcToParentWindowWithChildClose();
 		
 	}
 	@AfterTest

@@ -19,8 +19,9 @@ public class BaseClass {
 		}
 		if(browserName.equalsIgnoreCase("firefox"))
 		{
-			String path=System.getProperty("user.dir")+"\\Drivers\\geckodriver.exe";
-			System.setProperty("webdriver.gecko.driver",path);
+			/*String path=System.getProperty("user.dir")+"\\Drivers\\geckodriver.exe";
+			System.setProperty("webdriver.gecko.driver",path);*/
+			WebDriverManager.firefoxdriver().setup();
 			driver= new FirefoxDriver();
 			driver.manage().window().maximize();
 		}
