@@ -27,7 +27,7 @@ public class JavascriptHelper {
 	}
 	public void jsScroll()
 	{
-		javascriptExecutor.executeScript("window.scrollBy(0,350);");
+		javascriptExecutor.executeScript("window.scrollBy(0,600);");
 	}
 	public void executeScript(String script)
 	{

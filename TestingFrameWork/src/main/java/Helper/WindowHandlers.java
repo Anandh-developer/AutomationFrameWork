@@ -1,5 +1,6 @@
 package Helper;
 
+import java.util.Iterator;
 import java.util.Set;
 
 import org.openqa.selenium.WebDriver;
@@ -23,12 +24,26 @@ public class WindowHandlers {
 	}
 
 	public void swithcToParentWindowWithChildClose() {
-
-		Set<String> windowHandle = driver.getWindowHandles();
-		System.out.println(windowHandle.size());
-		driver.close();
 		Set<String> windowHandle2 = driver.getWindowHandles();
-		System.out.println(windowHandle2.size());
-		driver.switchTo().window(windowHandle.toString());
+		int winCount = windowHandle2.size();
+		System.out.println(winCount);
+		Iterator<String> iter=windowHandle2.iterator();
+		while(iter.hasNext())
+		{
+			System.out.println(winCount);
+			if(winCount==1)
+			{
+				System.out.println("Inside if condition");
+				driver.switchTo().window(iter.next());
+				break;
+			}
+			else
+			{
+				driver.close();
+			}
+			winCount--;
+		}
+		
+		
 	}
 }
